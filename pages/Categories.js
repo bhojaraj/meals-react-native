@@ -38,7 +38,7 @@ const Categories = props => {
                 data={CATEGORIES} 
                 renderItem={renderGridItem} 
             />
-            <Button title="Change header" onPress={() => {
+            {/* <Button title="Change header" onPress={() => {
                 props.navigation.setOptions({ 
                     title: 'Changed!',
                     headerStyle: {
@@ -46,7 +46,7 @@ const Categories = props => {
                     },
                     headerTintColor: Platform.OS === 'android' ? '#fff' : Colors.primaryColor
                 });
-            }}/>
+            }}/> */}
         {/* previous screen used, above is same implamentation with FlastList
         <View style={styles.container}>
             <Text>Category Screen</Text>

@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
 
 const MealItem = props => {
-    console.log(props);
+
     return (
         <View style={styles.mealItem}>
             <TouchableOpacity onPress={props.onSelectMeal}>
@@ -28,7 +28,7 @@ const MealItem = props => {
 const styles = StyleSheet.create({
     mealItem: {
         height: 200,
-        marginBottom: 10,
+        marginVertical: 10,
         width: '100%',
         backgroundColor: '#ddd',
         borderRadius: 10,

@@ -6,7 +6,17 @@ import { CATEGORIES, MEALS } from '../data/dummy-data';
 const CategoriesedMeals = props => {
 
     const renderMealItem = itemData => {
-        return <MealItem data={itemData.item} onSelectMeal={() => {}} />;
+        return (
+            <MealItem 
+                data={itemData.item} 
+                onSelectMeal={() => {
+                    props.navigation.navigate('MealDetail', {
+                        mealId: itemData.item.id,
+                        mealTitle: itemData.item.title
+                    })
+                }} 
+            />
+        );
     };
     const catId = props.route.params.category.categoryId;
     // selectedCategory = CATEGORIES.find(cat => cat.id === catId);
