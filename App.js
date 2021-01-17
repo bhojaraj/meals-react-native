@@ -6,7 +6,6 @@ import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import Meals from './navigation/Meals';
 import { enableScreens } from 'react-native-screens';
-import { Provider } from 'react-native-paper';
 
 
 enableScreens();
@@ -31,12 +30,10 @@ export default function App() {
     );
   }
   return (
-    <Provider>
     <View style={styles.container}>
       <StatusBar style="auto" />
       <Meals />
     </View>
-    </Provider>
   );
 }
 
