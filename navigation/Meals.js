@@ -8,22 +8,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Ionicons } from "@expo/vector-icons";
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-// import { createAppContainer } from 'react-navigation';
-// import { createStackNavigator } from 'react-navigation-stack';
 import Categories from '../pages/Categories';
 import CategorisedMeals from '../pages/CategorisedMeals';
 import MealDetail from '../pages/MealDetail';
 import Favorites from '../pages/Favorites';
 import Filters from "../pages/Filters";
 import Colors from '../constants/Colors';
-// const MealsNavigator = createStackNavigator({
-//     Categories: Categories,
-//     CategorisedMeals: {
-//         screen: CategorisedMeals
-//     },
-//     MealDetail: MealDetail
-// });
-// commented code is of react navigation older versions, works as expected but need to change navigation routeName in components 
+
 const Stack = createStackNavigator();
 
 const screenNavOptions = {
@@ -68,10 +59,8 @@ const MealsNavigator = () => {
                             <HeaderButtons HeaderButtonComponent={HeaderButton}>
                                 <Item 
                                     title="Favorite"
-                                    iconName="ios-star"
-                                    onPress={() => {
-                                        console.log('mark as favorite');
-                                    }} 
+                                    iconName={ route.params.isFav ? "ios-star" : "ios-star-outline" }
+                                    onPress={route.params.toggleFav} 
                                 />
                                 {/* can add multiple buttons 
                                 <Item 
@@ -106,7 +95,18 @@ const FavoritesNavigator = () => {
             <Stack.Screen 
                 name="MealDetail"
                 component={ MealDetail }
-                options={{ title: 'Meal Details' }}
+                options={({route}) => ({ 
+                    title: route.params.mealTitle,
+                    headerRight: () => (
+                        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                            <Item 
+                                title="Favorite"
+                                iconName={ route.params.isFav ? "ios-star" : "ios-star-outline" }
+                                onPress={ route.params.toggleFav }
+                            />
+                        </HeaderButtons>
+                    )
+                })}
             />
         </Stack.Navigator>
     );
