@@ -42,7 +42,7 @@ const Filters = props => {
   }, [isGlutenFree, isLactoseFree, isVegan, isVegetarian, dispatch]);
 
   useEffect(() => {
-    navigation.setParams({save: saveFilters()
+    navigation.setParams({save: saveFilters
     });
   }, [saveFilters]);
 

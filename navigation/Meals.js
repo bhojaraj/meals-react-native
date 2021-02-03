@@ -126,7 +126,8 @@ const FiltersNavigator = () => {
                     </HeaderButtons>),
                     headerRight: () => (<HeaderButtons HeaderButtonComponent={HeaderButton}>
                         <Item title="Save" iconName="ios-save" onPress={() => {
-                            console.log(route.params.save);
+                            const filters = route.params?.save ?? '';
+                            if( filters ) filters();
                         }} />
                     </HeaderButtons>)
                 })}
